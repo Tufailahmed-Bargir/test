@@ -2,6 +2,7 @@
 // npm install @google/generative-ai
 
 const express = require("express");
+ require("dotenv").config()
 const app = express();
 const port = 3000;
 app.use(express.static('views'))
@@ -64,7 +65,9 @@ app.post('/submit', async function(req, res) {
     } = require("@google/generative-ai");
 
     const MODEL_NAME = "gemini-1.5-pro-latest";
-    const API_KEY = process.env.API_KEY;
+    const API_KEY =process.env.KEY_API;
+
+    ;
 
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
