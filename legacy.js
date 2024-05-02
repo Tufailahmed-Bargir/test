@@ -64,7 +64,7 @@ app.post('/submit', async function(req, res) {
     } = require("@google/generative-ai");
 
     const MODEL_NAME = "gemini-1.5-pro-latest";
-    const API_KEY = "AIzaSyCeGzZmKaRE5p5LuhatyKTP7z42gSHTt54";
+    const API_KEY = process.env.API_KEY;
 
     const genAI = new GoogleGenerativeAI(API_KEY);
     const model = genAI.getGenerativeModel({ model: MODEL_NAME });
