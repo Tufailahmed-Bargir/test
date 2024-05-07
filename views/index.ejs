@@ -63,26 +63,27 @@
           <option value="Python">Python</option>
           <option value="C">C</option>
           <option value="C++">C++</option>
+          <option value="javascript">Javascript</option>
         </select>
        </div>
        <div class="containerr">
 
-        <% if (  locals.data ) { %>
+        <% if (  locals.code ) { %>
        <div class="card"id="card1">
         <div class="card-body">
           <h2>The Converted Code is :</h2> <br>
-          <%= data %>
+          <pre><code><%= code %></code></pre>
         </div>
         </div>
         <% } %>
 
 
-        <% if (  locals.data2 ) { %>
+        <% if (  locals.doc ) { %>
         <div class="card" id="card2">
           <div class="card-body">
             <h2>  The Code Documentation is :</h2> <br>
           
-           <%= data %>
+           <%= doc %>
           </div>
           </div>
           <% } %>
