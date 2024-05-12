@@ -4,7 +4,7 @@ import ejs from 'ejs';
 import bodyParser from 'body-parser'; // Use the correct package name
 
 const app = express();
-const port = 3000;
+const port = 3002;
 
 // **Improved connection handling with connection pool:**
 const db = new pg.Pool({
@@ -28,12 +28,12 @@ db.connect((err) => {
 app.use(bodyParser.urlencoded({ extended: true })); // Use bodyParser
 
 app.get('/', function(req, res) {
-  res.render('index.ejs');
+  res.render('db.ejs');
 });
 
 app.post('/submit', async (req, res) => {
   const name = req.body.name;
-  const pass = req.body.pass;
+  const pass = req.body.pass
   console.log(req.body);
   console.log(name, pass);
 

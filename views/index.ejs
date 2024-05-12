@@ -8,42 +8,101 @@
     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
      
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
 </head>
 <body>
     <!-- navbar code goes here -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Lego</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               
-              <li class="nav-item">
-                <a class="nav-link active" href="#">About Us</a>
-              </li>
-               
-              <li class="nav-item">
-                <a class="nav-link active" href="./FAQ">FAQ's</a>
-              </li>
-            
-              
-            </ul>
-           
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+    <nav>
+        
+      <div class="left">
+          <img src="./logoM.png" alt=""> 
+          LegoConverter</div>
+      <div class="right">
+          <div class="container">
+              <div class="items"><button class="btn btn btn-success" style="color: red;"><a href="/history" style="text-decoration: none; color: white;">history</a></button></div>
+              <!-- <div class="items"><a href=""></a></div> -->
+             
           </div>
-        </div>
-      </nav>
-      <form action="/submit" method="post"  >
+      </div>
+  </nav>
+     
          
       <!-- next to navbar -->
       <div class="px-4 py-5 my-5 text-center">
-        <img class="d-block mx-auto " src="https://1000logos.net/wp-content/uploads/2023/02/ChatGPT-Logo.png" alt="" width="150" height="70">
-        <h1 class="display-5 fw-bold text-body-emphasis">Legacy code converter</h1>
+        <!-- <img class="d-block mx-auto " src="./logo.jpg" alt="" width="150" height="90" id="logo"> -->
+<style>
+    img{
+           
+           width: 36px;
+           height: 36px;
+           padding: 5px;
+       }
+       *{
+           padding: 0;
+           margin: 0;
+       }
+       .left{
+           padding-left: 200px;
+           padding-left: 10px;
+           font-size: 20px;
+             font-weight: bold; 
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             
+            /* font-style: ; */
+            font-family: sans-serif;
+       }
+       nav{
+           padding-left: 10px;
+           display: flex;
+           justify-content: space-between;
+           background-color:#2A1D4A;
+           color:white;
+           width: 100%;
+           height: 80px;
+           align-items: center;
+       }
+       .container{
+           display: flex;
+           justify-content: space-evenly;
+            padding-right: 100px;
+       }
+       .items{
+           padding: 20px;
+           margin: 10px;
+           color: rgb(170, 166, 195);
+           font-weight: 500;
+           font-size: 20px;
+           font-style: normal;
+           
+           /* padding-right: 100px; */
+           font-family: sans-serif;
+       }
+       .items:hover{
+           color: white;
+       }
+      .navbar{
+        color: red;
+      }
+      body{
+  background-color: #100D25;
+  color:white;
+}
+body{
+  background-color: #100D25;
+  color:white;
+}
+  #navbar{
+    background-color: red;
+    color: pink;
+  }
+  #logo{
+    border-radius: 50%;
+  }
+</style>
+<form id="form" action="/submit" method="post">
+        <h1 class="display-5 fw-bold  text-white" style="color: white;">Legacy code converter</h1>
         <h2>convert the legacy code into modern code in ease</h2>
        <div class="container">
         <select name="type1" id="form1">
@@ -55,6 +114,8 @@
         </select>
         
         <input type="text"placeholder="Enter the legacy code here" name="input" id="input" >
+   
+          <button type="submit" id="btn" class="btn btn-success"  >Convert</button>
       </form>
         <select name="type2" id="form2">
           <option value="val1">Enter the modern langauge</option>
@@ -88,79 +149,51 @@
           </div>
           <% } %>
 
-        <!-- <div class="card">
-          <div class="card-body">
-            This is some text within a card body.
-          </div> -->
-
-
+           
+         
+     
       </div>
       </div>
         <style>
           #card1,#card2{
-            /* border: solid red; */
+         
             width: 40%;
           }
             .containerr{
               padding-top: 10px;
             display: flex;
             justify-content: space-evenly;
-            /* border: solid red; */
+        
           }
           .container{
             display: flex;
-            /* border: solid red; */
+            
+          }
+          #btn{
+            padding: 5px;margin: 5px;
+            border-radius: 5px;
           }
           #input{
-            /* height: 50px; */
+        
             padding: 5px;margin: 5px;
             width: 60%;
             border-radius: 5px;
-            /* border: solid red; */
+ 
           }
           #form1,#form2{
             border-radius: 5px;
             padding: 5px;margin: 5px;
             width:20%;
-            /* border: solid red; */
+      
           }
         </style>
-     
-           
-     
-     
-           
-
-        </div>
+      </div>
         </form>
         <h3> </h3>
           
         </div>
       </div>
-      
-
-
-      <!-- card code goes here
-      <div class="card">
-        <div class="card-body">
-          This is some text within a card body.
-        </div>
-      </div> -->
-     
-      <!-- searchbar code goes here -->
-      
-
-      <script>
     
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-const dropdownMenu = document.querySelector('.dropdown-menu');
-
-dropdownMenu.addEventListener('click', (event) => {
-  const selectedOption = event.target.textContent;
-  dropdownToggle.textContent = selectedOption;
-});
-
-      </script>
-
+    
 </body>
 </html>
