@@ -43,7 +43,7 @@ app.post('/submit', async function(req, res) {
         const queryCode = `act as the legacy code converter and convert this legacy code {${inputCode}} written in {${type1}} to modern {${type2}} code. NOTE: don't include comments and also don't mention the language you are converting `;
 
      
-        const MMEC = 'AIzaSyCeGzZmKaRE5p5LuhatyKTP7z42gSHTt54';
+      
         const genAI = new GoogleGenerativeAI(MMEC);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-latest" });
 
