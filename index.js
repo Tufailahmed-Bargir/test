@@ -1,30 +1,30 @@
 const express = require("express");
 const marked = require('marked');
 const cheerio = require('cheerio');
-const  pg =require( 'pg');
+// const  pg =require( 'pg');
 require("dotenv").config();
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
-const port = 3000||process.env.PORT;
+const port = 3001 ||process.env.PORT;
 
 // database connection setup
-const db = new pg.Pool({
-    user: "postgres",
-    host: "localhost",
-    database: "ahmed",
-    password: "ahmed", // Use environment variables for sensitive data
-    port: 5432
-  });
-  db.connect((err) => {
-    if (err) {
-      console.error('Error connecting to database:', err.message);
-      process.exit(1); // Exit the application on connection failure
-    } else {
-      console.log('Connected to database pool');
-    }
-  });
+// const db = new pg.Pool({
+//     user: "postgres",
+//     host: "localhost",
+//     database: "ahmed",
+//     password: "ahmed", // Use environment variables for sensitive data
+//     port: 5432
+//   });
+//   db.connect((err) => {
+//     if (err) {
+//       console.error('Error connecting to database:', err.message);
+//       process.exit(1); // Exit the application on connection failure
+//     } else {
+//       console.log('Connected to database pool');
+//     }
+//   });
 
 app.use(express.static('views'));
 app.use(express.urlencoded({ extended: true }));
@@ -72,14 +72,14 @@ app.post('/submit', async function(req, res) {
         console.log(convertedCode);
         console.log(documentation);
         // insertind the data into database
-      const code_db = [convertedCode]
-      const doc_db = [documentation]
+    //   const code_db = [convertedCode]/
+    //   const doc_db = [documentation]
          
-            const client = await db.connect();  
-            const queryy = await client.query('INSERT INTO legodata(question, code, documentation) VALUES($1, $2,$3)', [query, code_db, doc_db]);
+            // const client = await db.connect();  
+            // const queryy = await client.query('INSERT INTO legodata(question, code, documentation) VALUES($1, $2,$3)', [query, code_db, doc_db]);
 
-            console.log('Successfully stored');
-            await client.release();  
+            // console.log('Successfully stored');
+            // await client.release();  
         
         
         
@@ -93,18 +93,18 @@ app.post('/submit', async function(req, res) {
 });
 
 // history rout here
-app.get('/history' ,async(req,res) => {
-    const client = await db.connect();  
-    const queryy = await client.query('SELECT * FROM legodata');
-    console.log(queryy.rows);
+// app.get('/history' ,async(req,res) => {
+//     const client = await db.connect();  
+//     // const queryy = await client.query('SELECT * FROM legodata');
+//     console.log(queryy.rows);
             
-    res.render('history.ejs',{
-        // question:queryy.rows[0].question,
-        // code:queryy.rows[0].code,
-        // doc:queryy.rows[0].documentation,
-        data:queryy.rows,
-    });
-});
+//     res.render('history.ejs',{
+//         // question:queryy.rows[0].question,
+//         // code:queryy.rows[0].code,
+//         // doc:queryy.rows[0].documentation,
+//         data:queryy.rows,
+//     });
+// });
 
 app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
