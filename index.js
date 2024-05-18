@@ -92,6 +92,95 @@ app.post('/submit', async function(req, res) {
     }
 });
 
+app.get('/history', function(req, res){
+    res.render('history.ejs',{
+        data:[{
+            id: 1,
+            question: `convert this legacy code {' This is a legacy VB code snippet Sub HelloWorld()     MsgBox "Hello, World!" End Sub} written in {VB} to modern {Java}`,
+            code: '{"```java\n' +
+              'import javax.swing.JOptionPane;\n' +
+              '\n' +
+              'public class Main {\n' +
+              '    public static void main(String[] args) {\n' +
+              '        JOptionPane.showMessageDialog(null, \\"Hello, World!\\");\n' +
+              '    }\n' +
+              '}\n' +
+              '```"}',
+            documentation: '{"Main Class \n' +
+              '\n' +
+              'This class contains the main method, the entry point for the program.\n' +
+              '\n' +
+              'main Method\n' +
+              '\n' +
+              'This method is the starting point of the program execution. \n' +
+              'It displays a dialog box with the message \\"Hello, World!\\".\n' +
+              '"}'
+          },
+          {
+            id: 2,
+            question: 'convert this legacy code { Sub HelloWorld()     MsgBox "Hello, World!" End Sub} written in {VB} to modern {C++}',
+            code: '{"```cpp\n' +
+              '#include <iostream>\n' +
+              '\n' +
+              'int main() {\n' +
+              '  std::cout << \\"Hello, World!\\" << std::endl;\n' +
+              '  return 0;\n' +
+              '}\n' +
+              '``` \n' +
+              '"}',
+            documentation: '{" Program: Hello World \n' +
+              '\n' +
+              ' This program demonstrates a simple \\"Hello, World!\\" output in C++.\n' +
+              '\n' +
+              ' Includes:\n' +
+              ' iostream: This header file provides input and output functionalities in C++.\n' +
+              '\n' +
+              ' Function: main\n' +
+              '  The main function is the entry point of any C++ program. \n' +
+              '\n' +
+              '  Functionality:\n' +
+              '  - Prints the message \\"Hello, World!\\" to the console.\n' +
+              '  - Returns 0, indicating successful program execution. \n' +
+              '"}'
+          },
+          {
+            id: 3,
+            question: 'convert this legacy code { Sub HelloWorld()     MsgBox "Hello, World!" End Sub} written in {val1} to modern {C#}',
+            code: '{"```C#\n' +
+              ' public static void HelloWorld()\n' +
+              ' {\n' +
+              '      System.Windows.Forms.MessageBox.Show(\\"Hello, World!\\");\n' +
+              ' }\n' +
+              '```"}',
+            documentation: '{"HelloWorld Function\n' +
+              '\n' +
+              'This function displays a message box containing the text \\"Hello, World!\\". \n' +
+              '"}'
+          },
+          {
+            id: 4,
+            question: 'convert this legacy code { Sub HelloWorld()     MsgBox "Hello, World!" End Sub} written in {VB} to modern {Python}',
+            code: '{"```python\n' +
+              'import tkinter as tk\n' +
+              'from tkinter import messagebox\n' +
+              '\n' +
+              'def HelloWorld():\n' +
+              '    messagebox.showinfo(\\"Message\\", \\"Hello, World!\\")\n' +
+              '\n' +
+              'HelloWorld()\n' +
+              '```"}',
+            documentation: '{"This Python code creates a simple graphical window that displays a \\"Hello, World!\\" message. \n' +
+              '\n' +
+              'It utilizes the tkinter library for creating the graphical user interface. \n' +
+              '\n' +
+              'The code defines a function called HelloWorld. This function uses messagebox.showinfo to display a message box with the title \\"Message\\" and the message \\"Hello, World!\\".\n' +
+              '\n' +
+              'Finally, the HelloWorld function is called, resulting in the message box appearing on the screen. \n' +
+              '"}'
+          }]
+    })
+})
+
 // history rout here
 // app.get('/history' ,async(req,res) => {
 //     const client = await db.connect();  
