@@ -7,7 +7,7 @@ require("dotenv").config();
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const app = express();
-const port = 3000;
+const port = 3000||process.env.PORT;
 
 // database connection setup
 const db = new pg.Pool({
